@@ -6,8 +6,10 @@ Ramana Kondaveeti
 Created: 2019-12-01
 Updated:
 """
+
 import csv
 import json
+import statistics
 
 class Analysis(object):
     """
@@ -37,7 +39,31 @@ class Analysis(object):
                     exercise_dict[row['Gender']][row['Exercise']] = exercise_dict[row['Gender']][row['Exercise']] + 1
         return exercise_dict
 
+    def median_salary_by_gender(self):
+        """
+        Finds the average salary for each gender selected in the survey.
+        Returns: dictionary with keys of genders and values of their average
+            salary
+        """
+        with open(Analysis.survey_csv, 'r', encoding='cp1252', errors='ignore') as csvfile:
+            reader = csv.DictReader(csvfile)
+            median_salary_dict = {}
+            gender_salary_dict = {}
+            for row in reader:
+                if row['ConvertedSalary'] != 'NA':
+                    salary_int = int(float(row['ConvertedSalary']))
+                    if row['Gender'] not in gender_salary_dict:
+                        gender_salary_dict[row['Gender']] = [salary_int]
+                    else:
+                        gender_salary_dict[row['Gender']].append(salary_int)
+            for gender in gender_salary_dict:
+                sorted_list = sorted(gender_salary_dict[gender])
+                median_salary = int(statistics.median(sorted_list))
+                median_salary_dict[gender] = median_salary
+        return median_salary_dict
+
 
 if __name__ == '__main__':
     analysis = Analysis()
-    print(json.dumps(analysis.exercise_by_gender(), indent=1))
+    # print(json.dumps(analysis.exercise_by_gender(), indent=1))
+    print(analysis.median_salary_by_gender())
