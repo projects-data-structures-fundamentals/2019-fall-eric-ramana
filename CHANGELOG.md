@@ -12,6 +12,7 @@ job_satisfaction_by_gender()
 ### Added
 - Implemented exercise_by_gender() function
 - Created CHANGELOG.md
+- Implemented median_salary_by_gender() function
 
 ### Changed
 - Updated README.md with project summary
