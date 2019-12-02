@@ -84,6 +84,6 @@ class Analysis(object):
 
 if __name__ == '__main__':
     analysis = Analysis()
-    # print(json.dumps(analysis.exercise_by_gender(), indent=1))
-    # print(json.dumps(analysis.median_salary_by_gender(), indent=1))
-    print(json.dumps(analysis.job_satisfaction_by_gender(), indent=1))
+    # print(json.dumps(analysis.exercise_by_gender(), indent=1, sort_keys=True))
+    # print(json.dumps(analysis.median_salary_by_gender(), indent=1, sort_keys=True))
+    # print(json.dumps(analysis.job_satisfaction_by_gender(), indent=1, sort_keys=True))
