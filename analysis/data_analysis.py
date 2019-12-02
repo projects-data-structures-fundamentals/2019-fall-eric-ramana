@@ -41,7 +41,7 @@ class Analysis(object):
 
     def median_salary_by_gender(self):
         """
-        Finds the average salary for each gender selected in the survey.
+        Finds the median salary for each gender selected in the survey.
         Returns: dictionary with keys of genders and values of their average
             salary
         """
@@ -62,8 +62,28 @@ class Analysis(object):
                 median_salary_dict[gender] = median_salary
         return median_salary_dict
 
+    def job_satisfaction_by_gender(self):
+        """
+        Creates a dictionary of job satisfaction responses for each gender.
+        Returns: dictionary with keys of genders and values of a nested
+            dictionary containing keys of job satisfaction with values of how
+            many respondents chose that option
+        """
+        with open(Analysis.survey_csv, 'r', encoding='cp1252', errors='ignore') as csvfile:
+            reader = csv.DictReader(csvfile)
+            job_satisfaction_dict = {}
+            for row in reader:
+                if row['Gender'] not in job_satisfaction_dict:
+                    job_satisfaction_dict[row['Gender']] = {row['JobSatisfaction']: 1}
+                elif row['JobSatisfaction'] not in job_satisfaction_dict[row['Gender']]:
+                    job_satisfaction_dict[row['Gender']][row['JobSatisfaction']] = 1
+                else:
+                    job_satisfaction_dict[row['Gender']][row['JobSatisfaction']] = job_satisfaction_dict[row['Gender']][row['JobSatisfaction']] + 1
+        return job_satisfaction_dict
+
 
 if __name__ == '__main__':
     analysis = Analysis()
     # print(json.dumps(analysis.exercise_by_gender(), indent=1))
-    print(analysis.median_salary_by_gender())
+    # print(json.dumps(analysis.median_salary_by_gender(), indent=1))
+    print(json.dumps(analysis.job_satisfaction_by_gender(), indent=1))
