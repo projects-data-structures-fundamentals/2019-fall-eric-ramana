@@ -7,10 +7,11 @@ Created: 2019-12-14
 Updated:
 """
 
-import data_analysis as analyze
+import menu as menu
 
 def main():
-    print(analyze.Analysis.median_salary_by_gender())
+    menu.program_run()
+    # print(analyze.Analysis.median_salary_by_gender())
 
 
 if __name__ == '__main__':
