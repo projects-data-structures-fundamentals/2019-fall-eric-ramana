@@ -54,12 +54,13 @@ def program_run():
         selection = input('Selection: ')
         if selection == '1':
             graph.create_graph('exercise')
-            print('Based on these findings, we found that the top three genders that exercise at least once a week are: ' + analysis.top_exercisers_by_gender(analysis.exercise_by_gender()) + 'based on the csv data.')
+            print('Based on these findings, we found that the top three genders that exercise at least once a week are: ' + analysis.top_exercisers_by_gender(analysis.exercise_by_gender()) + 'based on the csv data.\n')
         elif selection == '2':
             graph.create_graph('salary')
-            print('Based on these findings, we found that the top three genders with the highest salaries are: ' + analysis.top_earners_by_gender(analysis.median_salary_by_gender()) + 'based on the csv data.')
+            print('Based on these findings, we found that the top three genders with the highest salaries are: ' + analysis.top_earners_by_gender(analysis.median_salary_by_gender()) + 'based on the csv data.\n')
         elif selection == '3':
-            break
+            graph.create_graph('job satisfaction')
+            print('Based on these findings, we found that the top three genders that are at least slightly satisfied with their jobs are: ' + analysis.happiest_genders_by_job(analysis.job_satisfaction_by_gender()) + 'based on the csv data.\n')
         else:
             proceed = input('Sorry, that is not a valid selection. '
                             'Press any key to return to the selection screen.')
