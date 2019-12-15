@@ -12,8 +12,10 @@ import json
 import statistics
 from collections import Counter
 
+
 survey_csv = 'C:\\Users\\ecoun\\OneDrive\\Desktop\\survey_results_public.csv'
 # survey_csv = 'test_survey.csv'
+
 
 def exercise_by_gender():
     """
@@ -34,6 +36,7 @@ def exercise_by_gender():
             else:
                 exercise_dict[row['Gender']][row['Exercise']] = exercise_dict[row['Gender']][row['Exercise']] + 1
     return exercise_dict
+
 
 def top_exercisers_by_gender(exercise_dict):
     """
@@ -91,6 +94,7 @@ def median_salary_by_gender():
             median_salary_dict[gender] = median_salary
     return median_salary_dict
 
+
 def top_earners_by_gender(median_salary_dict):
     """
     Accumulates the top three genders that earn the highest salaries into a
@@ -103,7 +107,6 @@ def top_earners_by_gender(median_salary_dict):
     for gender in top_earners:
         top_three_earners = top_three_earners + '{} {}, '.format(gender[0], gender[1])
     return top_three_earners
-
 
 
 def job_satisfaction_by_gender():
@@ -124,6 +127,7 @@ def job_satisfaction_by_gender():
             else:
                 job_satisfaction_dict[row['Gender']][row['JobSatisfaction']] = job_satisfaction_dict[row['Gender']][row['JobSatisfaction']] + 1
     return job_satisfaction_dict
+
 
 def happiest_genders_by_job(job_satisfaction_dict):
     """
