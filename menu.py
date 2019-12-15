@@ -8,6 +8,7 @@ Updated:
 """
 
 import graphs as graph
+import data_analysis as analysis
 
 def intro_menu():
     print('+----------------------------------------------------------------+')
@@ -49,12 +50,14 @@ def program_run():
     continue_running = True
     while continue_running:
         selection_menu()
+        print('Accumulating data for graphs and interpreting it may take up to 10 seconds. Please be patient!')
         selection = input('Selection: ')
         if selection == '1':
             graph.create_graph('exercise')
-            print('Based on these findings, we can conclude...')
+            print('Based on these findings, we found that the top three genders that exercise at least once a week are: ' + analysis.top_exercisers_by_gender(analysis.exercise_by_gender()) + 'based on the csv data.')
         elif selection == '2':
-            break
+            graph.create_graph('salary')
+            print('Based on these findings, we found that the top three genders with the highest salaries are: ' + analysis.top_earners_by_gender(analysis.median_salary_by_gender()) + 'based on the csv data.')
         elif selection == '3':
             break
         else:
