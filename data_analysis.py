@@ -124,3 +124,35 @@ def job_satisfaction_by_gender():
             else:
                 job_satisfaction_dict[row['Gender']][row['JobSatisfaction']] = job_satisfaction_dict[row['Gender']][row['JobSatisfaction']] + 1
     return job_satisfaction_dict
+
+def happiest_genders_by_job(job_satisfaction_dict):
+    """
+    Accumulates the top three genders that are at least slightly satisfied
+        with their job into a string to be concatenated.
+    Returns: string with genders and the percent of how many of them are at
+        least slightly satisfied with their job
+    """
+    happiest_genders = {}
+    top_three_happiest = ''
+    for gender in job_satisfaction_dict:
+        satisfied = 0
+        total_respondents = 0
+        for key in job_satisfaction_dict[gender]:
+            if key == 'Extremely satisfied':
+                satisfied = satisfied + job_satisfaction_dict[gender][key]
+                total_respondents = total_respondents + job_satisfaction_dict[gender][key]
+            elif key == 'Moderately satisfied':
+                satisfied = satisfied + job_satisfaction_dict[gender][key]
+                total_respondents = total_respondents + job_satisfaction_dict[gender][key]
+            elif key == 'Slightly satisfied':
+                satisfied = satisfied + job_satisfaction_dict[gender][key]
+                total_respondents = total_respondents + job_satisfaction_dict[gender][key]
+            else:
+                total_respondents = total_respondents + job_satisfaction_dict[gender][key]
+            percent_happiest = "{0:.1f}".format(((satisfied / total_respondents) * 100)) + '%'
+            happiest_genders[gender] = percent_happiest
+    accumulator = Counter(happiest_genders)
+    top_happiest = accumulator.most_common(3)
+    for gender in top_happiest:
+        top_three_happiest = top_three_happiest + '{} {}, '.format(gender[0], gender[1])
+    return top_three_happiest
