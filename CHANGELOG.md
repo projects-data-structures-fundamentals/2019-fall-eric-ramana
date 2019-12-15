@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 2019-12-15
+### Added
+- Implemented a selection structure in graphs.py for various graphs to be made
+- Implemented additional functions to data_analysis.py for data analysis
+
+### Changed
+- Updated menu.py to include further selections of data analysis
+
 ## 2019-12-14
 ### Added
 - Implemented graphs.py and its functions
