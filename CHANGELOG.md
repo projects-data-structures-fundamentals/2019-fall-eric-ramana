@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Updated menu.py to include further selections of data analysis
+- Updated all files to comply with pycodestyle standards
 
 ## 2019-12-14
 ### Added
