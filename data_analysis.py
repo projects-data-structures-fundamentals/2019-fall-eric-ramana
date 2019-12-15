@@ -4,7 +4,7 @@ Functions for collecting csv data and interpreting it.
 Eric O'Neil
 Ramana Kondaveeti
 Created: 2019-12-01
-Updated:
+Updated: 2019-12-15
 """
 
 import csv
