@@ -4,7 +4,7 @@ Functions for graphing the csv data.
 Eric O'Neil
 Ramana Kondaveeti
 Created: 2019-12-14
-Updated:
+Updated: 2019-12-15
 """
 
 import matplotlib
