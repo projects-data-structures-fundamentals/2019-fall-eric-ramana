@@ -10,6 +10,7 @@ Updated:
 import csv
 import json
 import statistics
+from collections import Counter
 
 survey_csv = 'C:\\Users\\ecoun\\OneDrive\\Desktop\\survey_results_public.csv'
 # survey_csv = 'test_survey.csv'
@@ -34,6 +35,39 @@ def exercise_by_gender():
                 exercise_dict[row['Gender']][row['Exercise']] = exercise_dict[row['Gender']][row['Exercise']] + 1
     return exercise_dict
 
+def top_exercisers_by_gender(exercise_dict):
+    """
+    Accumulates the top three genders that exercise into a string to be
+        concatenated with other findings.
+    Returns: string with genders and their associated percent of how many
+        exercise at least once per week
+    """
+    top_exercisers = {}
+    top_three_exercisers = ''
+    for gender in exercise_dict:
+        exercisers = 0
+        total_respondents = 0
+        for key in exercise_dict[gender]:
+            if key == '1 - 2 times per week':
+                exercisers = exercisers + exercise_dict[gender][key]
+                total_respondents = total_respondents + exercise_dict[gender][key]
+            elif key == '3 - 4 times per week':
+                exercisers = exercisers + exercise_dict[gender][key]
+                total_respondents = total_respondents + exercise_dict[gender][key]
+            elif key == 'Daily or almost every day':
+                exercisers = exercisers + exercise_dict[gender][key]
+                total_respondents = total_respondents + exercise_dict[gender][key]
+            else:
+                total_respondents = total_respondents + exercise_dict[gender][key]
+            percent_exercised_each_week = "{0:.1f}".format(((exercisers / total_respondents) * 100)) + '%'
+            top_exercisers[gender] = percent_exercised_each_week
+    accumulator = Counter(top_exercisers)
+    top = accumulator.most_common(3)
+    for gender in top:
+        top_three_exercisers = top_three_exercisers + '{} {}, '.format(gender[0], gender[1])
+    return top_three_exercisers
+
+
 def median_salary_by_gender():
     """
     Finds the median salary for each gender selected in the survey.
@@ -56,6 +90,21 @@ def median_salary_by_gender():
             median_salary = int(statistics.median(sorted_list))
             median_salary_dict[gender] = median_salary
     return median_salary_dict
+
+def top_earners_by_gender(median_salary_dict):
+    """
+    Accumulates the top three genders that earn the highest salaries into a
+        string to be concatenated.
+    Returns: string with genders and their associated salaries per year
+    """
+    top_three_earners = ''
+    accumulator = Counter(median_salary_dict)
+    top_earners = accumulator.most_common(3)
+    for gender in top_earners:
+        top_three_earners = top_three_earners + '{} {}, '.format(gender[0], gender[1])
+    return top_three_earners
+
+
 
 def job_satisfaction_by_gender():
     """
