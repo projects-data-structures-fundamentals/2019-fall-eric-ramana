@@ -59,6 +59,7 @@ def program_run():
         user selection to drive data analysis.
     """
     intro_menu()
+    survey_csv = 'survey_results_public_modified.csv'
     proceed = input()
     continue_running = True
     while continue_running:
@@ -71,7 +72,7 @@ def program_run():
             print('Based on these findings, we found that the top three '
                   ' genders that exercise at least once a week are: '
                   + analysis.top_exercisers_by_gender(
-                        analysis.exercise_by_gender()
+                        analysis.exercise_by_gender(survey_csv)
                     )
                   + 'based on the csv data.\n')
         elif selection == '2':
@@ -79,7 +80,7 @@ def program_run():
             print('Based on these findings, we found that the top three '
                   'genders with the highest salaries are: '
                   + analysis.top_earners_by_gender(
-                    analysis.median_salary_by_gender()
+                    analysis.median_salary_by_gender(survey_csv)
                     )
                   + 'based on the csv data.\n')
         elif selection == '3':
@@ -88,7 +89,7 @@ def program_run():
                   'genders that are at least slightly satisfied with their '
                   'jobs are: '
                   + analysis.happiest_genders_by_job(
-                        analysis.job_satisfaction_by_gender()
+                        analysis.job_satisfaction_by_gender(survey_csv)
                     )
                   + 'based on the csv data.\n')
         else:
