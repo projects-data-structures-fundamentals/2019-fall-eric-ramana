@@ -19,8 +19,9 @@ def create_graph(type_of_data):
         the option selected by the user. Presents the graph on the user's
         screen.
     """
+    survey_csv = 'survey_results_public_modified.csv'
     if type_of_data == 'exercise':
-        working_dict = analysis.exercise_by_gender()
+        working_dict = analysis.exercise_by_gender(survey_csv)
         df = pd.DataFrame(working_dict)
         ax = df.plot(kind="bar",
                      rot=0,
@@ -32,7 +33,7 @@ def create_graph(type_of_data):
                         xytext=(0, 10), textcoords='offset points')
         plt.show()
     elif type_of_data == 'salary':
-        working_dict = analysis.median_salary_by_gender()
+        working_dict = analysis.median_salary_by_gender(survey_csv)
         index = ['Genders']
         df = pd.DataFrame(working_dict, index=index)
         ax = df.plot(kind="bar",
@@ -45,7 +46,7 @@ def create_graph(type_of_data):
                         xytext=(0, 10), textcoords='offset points')
         plt.show()
     elif type_of_data == 'job satisfaction':
-        working_dict = analysis.job_satisfaction_by_gender()
+        working_dict = analysis.job_satisfaction_by_gender(survey_csv)
         df = pd.DataFrame(working_dict)
         ax = df.plot(kind="bar",
                      rot=0,
