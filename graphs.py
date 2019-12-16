@@ -9,7 +9,6 @@ Updated: 2019-12-15
 
 import matplotlib
 import matplotlib.pyplot as plt
-import numpy as np
 import data_analysis as analysis
 import pandas as pd
 
