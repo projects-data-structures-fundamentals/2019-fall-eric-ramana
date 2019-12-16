@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Implemented a selection structure in graphs.py for various graphs to be made
 - Implemented additional functions to data_analysis.py for data analysis
+- Created tests.py module for unit testing
 
 ### Changed
 - Updated menu.py to include further selections of data analysis
