@@ -13,10 +13,7 @@ import statistics
 from collections import Counter
 
 
-survey_csv = 'survey_results_public_modified.csv'
-
-
-def exercise_by_gender():
+def exercise_by_gender(survey_csv):
     """
     Finds how often each gender exercises based on survey responses and
         adds it to a dictionary.
@@ -75,7 +72,7 @@ def top_exercisers_by_gender(exercise_dict):
     return top_three
 
 
-def median_salary_by_gender():
+def median_salary_by_gender(survey_csv):
     """
     Finds the median salary for each gender selected in the survey.
     Returns: dictionary with keys of genders and values of their average
@@ -117,7 +114,7 @@ def top_earners_by_gender(median_salary_dict):
     return three_earners
 
 
-def job_satisfaction_by_gender():
+def job_satisfaction_by_gender(survey_csv):
     """
     Creates a dictionary of job satisfaction responses for each gender.
     Returns: dictionary with keys of genders and values of a nested
