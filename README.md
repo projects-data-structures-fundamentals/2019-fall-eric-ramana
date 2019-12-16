@@ -5,7 +5,6 @@ The Stack Overflow Developer Survey collected survey responses from thousands of
 - csv module
 - matplotlib
 - json module
-- numpy module
 - pandas
 - statistics module
 - collections module
