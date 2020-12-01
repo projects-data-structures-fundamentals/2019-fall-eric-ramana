@@ -27,7 +27,6 @@ class DictionaryTests(unittest.TestCase):
         salary_expected = {'Male': 47904}
         self.assertDictEqual(salary_actual, salary_expected)
 
-
     def test_medium_csv(self):
         """
         Csv file with 1,000 lines

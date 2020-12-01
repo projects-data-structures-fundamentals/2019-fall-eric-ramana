@@ -21,7 +21,7 @@ def intro_menu():
     print('|            Stack Overflow Developer Survey Project             |')
     print('|                                                                |')
     print('|                                                                |')
-    print('|                       Eric O\'Neil                              |')
+    print('|                       Eric O\'Neil                             |')
     print('|                                                                |')
     print('|                            &                                   |')
     print('|                                                                |')

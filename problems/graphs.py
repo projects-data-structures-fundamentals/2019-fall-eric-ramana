@@ -22,38 +22,56 @@ def create_graph(type_of_data):
     survey_csv = 'survey_results_public_modified.csv'
     if type_of_data == 'exercise':
         working_dict = analysis.exercise_by_gender(survey_csv)
-        df = pd.DataFrame(working_dict)
-        ax = df.plot(kind="bar",
-                     rot=0,
-                     title="Exercise Frequency By Gender",
-                     colormap='tab20')
-        for p in ax.patches:
-            ax.annotate(p.get_height(), (p.get_x() + p.get_width() / 2.,
-                        p.get_height()), ha='center', va='center',
-                        xytext=(0, 10), textcoords='offset points')
+        data_frame = pd.DataFrame(working_dict)
+        ax_plot = data_frame.plot(
+            kind="bar",
+            rot=0,
+            title="Exercise Frequency By Gender",
+            colormap='tab20'
+        )
+        for patch in ax_plot.patches:
+            ax_plot.annotate(
+                patch.get_height(),
+                (patch.get_x() + patch.get_width() / 2.,
+                    patch.get_height()),
+                ha='center', va='center',
+                xytext=(0, 10), textcoords='offset points'
+            )
         plt.show()
     elif type_of_data == 'salary':
         working_dict = analysis.median_salary_by_gender(survey_csv)
         index = ['Genders']
-        df = pd.DataFrame(working_dict, index=index)
-        ax = df.plot(kind="bar",
-                     rot=0,
-                     title="Median Salary By Gender",
-                     colormap='tab20')
-        for p in ax.patches:
-            ax.annotate(p.get_height(), (p.get_x() + p.get_width() / 2.,
-                        p.get_height()), ha='center', va='center',
-                        xytext=(0, 10), textcoords='offset points')
+        data_frame = pd.DataFrame(working_dict, index=index)
+        ax_plot = data_frame.plot(
+            kind="bar",
+            rot=0,
+            title="Median Salary By Gender",
+            colormap='tab20'
+        )
+        for patch in ax_plot.patches:
+            ax_plot.annotate(
+                patch.get_height(),
+                (patch.get_x() + patch.get_width() / 2.,
+                    patch.get_height()),
+                ha='center', va='center',
+                xytext=(0, 10), textcoords='offset points'
+            )
         plt.show()
     elif type_of_data == 'job satisfaction':
         working_dict = analysis.job_satisfaction_by_gender(survey_csv)
-        df = pd.DataFrame(working_dict)
-        ax = df.plot(kind="bar",
-                     rot=0,
-                     title="Job Satisfaction By Gender",
-                     colormap='tab20')
-        for p in ax.patches:
-            ax.annotate(p.get_height(), (p.get_x() + p.get_width() / 2.,
-                        p.get_height()), ha='center', va='center',
-                        xytext=(0, 10), textcoords='offset points')
+        data_frame = pd.DataFrame(working_dict)
+        ax_plot = data_frame.plot(
+            kind="bar",
+            rot=0,
+            title="Job Satisfaction By Gender",
+            colormap='tab20'
+        )
+        for patch in ax_plot.patches:
+            ax_plot.annotate(
+                patch.get_height(),
+                (patch.get_x() + patch.get_width() / 2.,
+                    patch.get_height()),
+                ha='center', va='center',
+                xytext=(0, 10), textcoords='offset points'
+            )
         plt.show()

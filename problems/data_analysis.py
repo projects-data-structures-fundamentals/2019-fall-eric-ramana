@@ -8,7 +8,6 @@ Updated: 2019-12-15
 """
 
 import csv
-import json
 import statistics
 from collections import Counter
 
@@ -32,7 +31,8 @@ def exercise_by_gender(survey_csv):
             elif row[exercise] not in ex_dict[row[gender]]:
                 ex_dict[row[gender]][row[exercise]] = 1
             else:
-                ex_dict[row[gender]][row[exercise]] = ex_dict[row[gender]][row[exercise]] + 1
+                ex_dict[row[gender]][row[exercise]] = \
+                    ex_dict[row[gender]][row[exercise]] + 1
     return ex_dict
 
 
@@ -132,7 +132,8 @@ def job_satisfaction_by_gender(survey_csv):
             elif row[job] not in satis_dict[row[gender]]:
                 satis_dict[row[gender]][row[job]] = 1
             else:
-                satis_dict[row[gender]][row[job]] = satis_dict[row[gender]][row[job]] + 1
+                satis_dict[row[gender]][row[job]] = \
+                    satis_dict[row[gender]][row[job]] + 1
     return satis_dict
 
 

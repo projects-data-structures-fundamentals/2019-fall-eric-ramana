@@ -19,7 +19,6 @@ class DictionaryTests(unittest.TestCase):
         self.medium_csv = 'survey_results_public_medium.csv'
         self.full_csv = 'survey_results_public_modified.csv'
 
-
     def test_small_csv(self):
         """
         Csv file with 20 lines
@@ -43,7 +42,6 @@ class DictionaryTests(unittest.TestCase):
             'Female': {'Slightly satisfied': 2}
          }
         self.assertDictEqual(satisfaction_actual, satisfaction_expected)
-
 
     def test_medium_csv(self):
         """
