@@ -43,22 +43,22 @@ def exercise_by_gender(survey_csv):
   * values are dictionary with keys as amount of times they exercise and value
     as response numbers
 * Assign String `Gender` to `gender`
-* Assign String `Exercise` to `ex`
+* Assign String `Exercise` to `exercise`
 * **iteration** : use a for loop
   * with loop variable named `row` to iterate over reader
     * check if dictionary row keyed with `gender` is not in `ex_dict`
       * if true, add key: value pair with key as `row[gender]` and value as a dictionary
-        with key as `row[ex]` and value as 1
-    * else check if `row[ex]` is not in `ex_dict[row[gender]]`
+        with key as `row[exercise]` and value as 1
+    * else check if `row[exercise]` is not in `ex_dict[row[gender]]`
       * if true, assign value `1` to dictionary ex_dict with key as `row[gender]`
-        and value as dictionary with key `row[ex]`
+        and value as dictionary with key `row[exercise]`
         ```
-        ex_dict[row[gender]][row[ex]] = 1
+        ex_dict[row[gender]][row[exercise]] = 1
         ```
     * else, increment with 1 to dictionary ex_dict with key as `row[gender]`
-      and value as dictionary with key `row[ex]`
+      and value as dictionary with key `row[exercise]`
       ```
-      ex_dict[row[gender]][row[ex]] = ex_dict[row[gender]][row[ex]] + 1
+      ex_dict[row[gender]][row[exercise]] = ex_dict[row[gender]][row[exercise]] + 1
       ```
 * return `ex_dict`
 

@@ -24,15 +24,15 @@ def exercise_by_gender(survey_csv):
     with open(survey_csv, 'r', encoding='cp1252', errors='ignore') as csvfile:
         reader = csv.DictReader(csvfile)
         ex_dict = {}
-        g = 'Gender'
-        ex = 'Exercise'
+        gender = 'Gender'
+        exercise = 'Exercise'
         for row in reader:
-            if row[g] not in ex_dict:
-                ex_dict[row[g]] = {row[ex]: 1}
-            elif row[ex] not in ex_dict[row[g]]:
-                ex_dict[row[g]][row[ex]] = 1
+            if row[gender] not in ex_dict:
+                ex_dict[row[gender]] = {row[exercise]: 1}
+            elif row[exercise] not in ex_dict[row[gender]]:
+                ex_dict[row[gender]][row[exercise]] = 1
             else:
-                ex_dict[row[g]][row[ex]] = ex_dict[row[g]][row[ex]] + 1
+                ex_dict[row[gender]][row[exercise]] = ex_dict[row[gender]][row[exercise]] + 1
     return ex_dict
 
 
@@ -82,15 +82,15 @@ def median_salary_by_gender(survey_csv):
         reader = csv.DictReader(csvfile)
         median_salary_dict = {}
         gender_salary_dict = {}
-        cs = 'ConvertedSalary'
-        g = 'Gender'
+        salary = 'ConvertedSalary'
+        gender = 'Gender'
         for row in reader:
-            if row[cs] != 'NA':
-                salary_int = int(float(row[cs]))
-                if row[g] not in gender_salary_dict:
-                    gender_salary_dict[row[g]] = [salary_int]
+            if row[salary] != 'NA':
+                salary_int = int(float(row[salary]))
+                if row[gender] not in gender_salary_dict:
+                    gender_salary_dict[row[gender]] = [salary_int]
                 else:
-                    gender_salary_dict[row[g]].append(salary_int)
+                    gender_salary_dict[row[gender]].append(salary_int)
         for gender in gender_salary_dict:
             sorted_list = sorted(gender_salary_dict[gender])
             median_salary = int(statistics.median(sorted_list))
@@ -124,15 +124,15 @@ def job_satisfaction_by_gender(survey_csv):
     with open(survey_csv, 'r', encoding='cp1252', errors='ignore') as csvfile:
         reader = csv.DictReader(csvfile)
         satis_dict = {}
-        g = 'Gender'
-        js = 'JobSatisfaction'
+        gender = 'Gender'
+        job = 'JobSatisfaction'
         for row in reader:
-            if row[g] not in satis_dict:
-                satis_dict[row[g]] = {row[js]: 1}
-            elif row[js] not in satis_dict[row[g]]:
-                satis_dict[row[g]][row[js]] = 1
+            if row[gender] not in satis_dict:
+                satis_dict[row[gender]] = {row[job]: 1}
+            elif row[job] not in satis_dict[row[gender]]:
+                satis_dict[row[gender]][row[job]] = 1
             else:
-                satis_dict[row[g]][row[js]] = satis_dict[row[g]][row[js]] + 1
+                satis_dict[row[gender]][row[job]] = satis_dict[row[gender]][row[job]] + 1
     return satis_dict
 
 
