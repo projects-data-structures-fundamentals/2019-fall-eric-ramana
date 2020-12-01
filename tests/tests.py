@@ -8,7 +8,7 @@ Updated: 2019-12-15
 """
 
 import unittest
-import data_analysis as analysis
+from problems import data_analysis
 
 
 class DictionaryTests(unittest.TestCase):
@@ -24,7 +24,7 @@ class DictionaryTests(unittest.TestCase):
         """
         Csv file with 20 lines
         """
-        exercise_actual = analysis.exercise_by_gender(self.small_csv)
+        exercise_actual = data_analysis.exercise_by_gender(self.small_csv)
         exercise_expected = {'Male':
                                 {'3 - 4 times per week': 3,
                                 'Daily or almost every day': 2,
@@ -38,9 +38,9 @@ class DictionaryTests(unittest.TestCase):
                                 {'1 - 2 times per week': 1,
                                  'Daily or almost every day': 1}
                                 }
-        salary_actual = analysis.median_salary_by_gender(self.small_csv)
+        salary_actual = data_analysis.median_salary_by_gender(self.small_csv)
         salary_expected = {'Male': 47904}
-        satisfaction_actual = analysis.job_satisfaction_by_gender(self.small_csv)
+        satisfaction_actual = data_analysis.job_satisfaction_by_gender(self.small_csv)
         satisfaction_expected = {'Male':
                                     {'Extremely satisfied': 1,
                                      'Moderately dissatisfied': 1,
@@ -62,7 +62,7 @@ class DictionaryTests(unittest.TestCase):
         """
         Csv file with 1,000 lines
         """
-        exercise_actual = analysis.exercise_by_gender(self.medium_csv)
+        exercise_actual = data_analysis.exercise_by_gender(self.medium_csv)
         exercise_expected = {'Male': {
                                 '3 - 4 times per week': 139,
                                 'Daily or almost every day': 90,
@@ -107,7 +107,7 @@ class DictionaryTests(unittest.TestCase):
                                 '1 - 2 times per week': 1
                                 }
                             }
-        salary_actual = analysis.median_salary_by_gender(self.medium_csv)
+        salary_actual = data_analysis.median_salary_by_gender(self.medium_csv)
         salary_expected = {'Male': 53000,
                            'Female;Male;Transgender;Non-binary, genderqueer, '
                            'or gender non-conforming': 75000,
@@ -121,7 +121,7 @@ class DictionaryTests(unittest.TestCase):
                            'Transgender': 56224,
                            'Female;Transgender': 85000
                            }
-        satisfaction_actual = analysis.job_satisfaction_by_gender(self.medium_csv)
+        satisfaction_actual = data_analysis.job_satisfaction_by_gender(self.medium_csv)
         satisfaction_expected = {'Male': {
                                     'Extremely satisfied': 103,
                                     'Moderately dissatisfied': 52,
@@ -183,7 +183,7 @@ class DictionaryTests(unittest.TestCase):
         """
         Text file with 48,000 lines
         """
-        exercise_actual = analysis.exercise_by_gender(self.full_csv)
+        exercise_actual = data_analysis.exercise_by_gender(self.full_csv)
         exercise_expected = {'Male': {
                                 '3 - 4 times per week': 6356,
                                 'Daily or almost every day': 3952,
@@ -285,7 +285,7 @@ class DictionaryTests(unittest.TestCase):
                                 "I don't typically exercise": 2
                                 }
                             }
-        salary_actual = analysis.median_salary_by_gender(self.full_csv)
+        salary_actual = data_analysis.median_salary_by_gender(self.full_csv)
         salary_expected = {'Male': 58340,
                            'Female;Male;Transgender;Non-binary, genderqueer, '
                            'or gender non-conforming': 29664,
@@ -311,7 +311,7 @@ class DictionaryTests(unittest.TestCase):
                            'gender non-conforming': 115000,
                            'Female;Male;Transgender': 6387
                            }
-        satisfaction_actual = analysis.job_satisfaction_by_gender(self.full_csv)
+        satisfaction_actual = data_analysis.job_satisfaction_by_gender(self.full_csv)
         satisfaction_expected = {'Male': {
                                     'Extremely satisfied': 5360,
                                     'Moderately dissatisfied': 2873,
