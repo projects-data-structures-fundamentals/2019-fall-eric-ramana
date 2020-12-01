@@ -100,3 +100,39 @@ def median_salary_by_gender(survey_csv):
     `sorted_list` and store it in a local variable `median_salary`
   * assign value `median_salary` to dictionary `median_salary_dict` with key as
     `gender`
+
+
+### job_satisfaction_by_gender()
+```
+def job_satisfaction_by_gender(survey_csv):
+    """
+    Creates a dictionary of job satisfaction responses for each gender.
+    Returns: dictionary with keys of genders and values of a nested
+        dictionary containing keys of job satisfaction with values of how
+        many respondents chose that option
+    """
+```
+* Use `with ... as` statement to open and read from the CSV file named
+  `survey_csv` as csvfile
+* read the csv file as a Dictionary and store it in `reader` using class
+  `DictReader`
+* **accumulator**
+  * of type dictionary
+  * initialized with {}
+  * named `satis_dict`
+  * keys are genders
+  * values are dictionary with keys as job satisfaction and values as
+    number of respondents
+* assign string `Gender` to `gender`
+* assign string `JobSatisfaction` to `job`
+* **iteration** : use a for loop
+  * with loop variable row to iterate over reader
+  * check if, `row[gender]` is not in `satis_dict`
+    * if true, add key: value pair with key as `row[gender]` and value as a dictionary
+      with key as `row[job]` and value as 1
+  * else if, `row[job]` is not in `satis_dict[row[gender]]`
+    * if true, assign value `1` to dictionary satis_dict with key as `row[gender]`
+      and value as dictionary with key `row[job]`
+  * else, increment with 1 to dictionary satis_dict with key as `row[gender]`
+    and value as dictionary with key `row[job]`
+* return `satis_dict`
