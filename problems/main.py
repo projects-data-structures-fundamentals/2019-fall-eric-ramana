@@ -7,10 +7,13 @@ Created: 2019-12-14
 Updated: 2019-12-15
 """
 
-import menu as menu
+import menu
 
 
 def main():
+    """
+    calling a method from menu module
+    """
     menu.program_run()
 
 
